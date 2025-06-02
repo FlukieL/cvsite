@@ -6,15 +6,54 @@ class ContentManager {
 
     async loadContent() {
         try {
-            const response = await fetch('./data/content.json');
-            if (!response.ok) {
-                throw new Error(`HTTP error! status: ${response.status}`);
+            // Try multiple possible paths for the content.json file
+            const possiblePaths = [
+                './data/content.json',
+                '/data/content.json',
+                '../data/content.json',
+                'data/content.json'
+            ];
+
+            let response = null;
+            for (const path of possiblePaths) {
+                try {
+                    response = await fetch(path);
+                    if (response.ok) {
+                        break;
+                    }
+                } catch (e) {
+                    continue;
+                }
             }
+
+            if (!response || !response.ok) {
+                throw new Error(`Could not load content.json from any of the attempted paths`);
+            }
+
             this.content = await response.json();
             return this.content;
         } catch (error) {
             console.error('Error loading content:', error);
-            return null;
+            // Provide a fallback content structure
+            this.content = {
+                site: {
+                    title: "Luke Harper",
+                    description: "IT Professional"
+                },
+                navigation: {
+                    logo: "Luke Harper",
+                    links: [
+                        { text: "About Me", url: "index.html" },
+                        { text: "Skills", url: "skills.html" },
+                        { text: "CV", url: "cv.html" }
+                    ]
+                },
+                about: {
+                    title: "About Me",
+                    content: ["Content loading failed. Please check your internet connection and try again."]
+                }
+            };
+            return this.content;
         }
     }
 
