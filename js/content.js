@@ -6,7 +6,10 @@ class ContentManager {
 
     async loadContent() {
         try {
-            const response = await fetch('/data/content.json');
+            const response = await fetch('../data/content.json');
+            if (!response.ok) {
+                throw new Error(`HTTP error! status: ${response.status}`);
+            }
             this.content = await response.json();
             return this.content;
         } catch (error) {
