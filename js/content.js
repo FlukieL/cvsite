@@ -95,7 +95,7 @@ class ContentManager {
 
                 // Add profile image if not on main page
                 const currentPath = window.location.pathname;
-                const isMainPage = currentPath === '/' || currentPath === '/index.html';
+                const isMainPage = currentPath.endsWith('index.html') || currentPath === '/';
                 if (!isMainPage) {
                     let profileImage = logoContainer.querySelector('.nav-profile-image');
                     if (!profileImage) {
@@ -118,8 +118,8 @@ class ContentManager {
                 const navLinks = nav.querySelector('.nav-links');
                 if (navLinks) {
                     navLinks.innerHTML = this.content.navigation.links.map(link => {
-                        const isActive = (link.url === '/' && currentPath === '/') || 
-                                      (link.url !== '/' && currentPath.startsWith(link.url));
+                        const isActive = (link.url === 'index.html' && (currentPath.endsWith('index.html') || currentPath === '/')) || 
+                                      (link.url !== 'index.html' && currentPath.endsWith(link.url));
                         return `
                             <a href="${link.url}" ${isActive ? 'class="active"' : ''}>
                                 ${link.text}
