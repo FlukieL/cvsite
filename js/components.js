@@ -25,8 +25,10 @@ async function loadComponent(elementId, componentPath) {
     }
 }
 
-// Load footer on page load
+// Load components on page load
 document.addEventListener('DOMContentLoaded', () => {
     const footerPath = './components/footer.html';
+    const navbarPath = './components/navbar.html';
     loadComponent('footer-container', footerPath);
+    loadComponent('navbar-container', navbarPath);
 }); 
