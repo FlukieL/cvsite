@@ -48,6 +48,9 @@ function expandAll() {
 
 // Page transition handling
 document.addEventListener('DOMContentLoaded', () => {
+    // Set body opacity to 1 on page load
+    document.body.style.opacity = '1';
+    
     // Add page transition class to main content
     const mainContent = document.querySelector('main');
     if (mainContent) {

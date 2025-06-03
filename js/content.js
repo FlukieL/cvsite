@@ -231,6 +231,23 @@ class ContentManager {
     // Initialize content based on current page
     async initialize() {
         await this.loadContent();
+        
+        // Wait for navbar to be loaded
+        const waitForNav = () => {
+            return new Promise((resolve) => {
+                const checkNav = () => {
+                    const nav = document.querySelector('.nav-content');
+                    if (nav) {
+                        resolve(nav);
+                    } else {
+                        setTimeout(checkNav, 100);
+                    }
+                };
+                checkNav();
+            });
+        };
+
+        await waitForNav();
         this.renderNavigation();
 
         // Render page-specific content
