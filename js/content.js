@@ -132,37 +132,27 @@ class ContentManager {
     renderSkills() {
         if (!this.content) return;
 
-        const skillsSection = document.querySelector('.skills-section');
-        if (!skillsSection) return;
+        const skillsContent = document.getElementById('skills-content');
+        if (!skillsContent) return;
 
-        const title = skillsSection.querySelector('h1');
+        // Set the page title
+        const title = document.querySelector('.skills-section h1');
         if (title) {
             title.textContent = this.content.skills.title;
         }
 
-        // Remove profile header if it exists
-        const profileHeader = skillsSection.querySelector('.profile-header');
-        if (profileHeader) {
-            profileHeader.remove();
-        }
-
-        const skillsGrid = skillsSection.querySelector('.skills-grid');
-        if (skillsGrid) {
-            skillsGrid.innerHTML = this.content.skills.categories.map(category => `
-                <div class="skill-card">
-                    <button class="skill-header" onclick="toggleSkill(this)">
-                        <h2>${category.name}</h2>
-                        <span class="toggle-icon">+</span>
-                    </button>
-                    <div class="skill-content">
-                        <p class="experience">${category.experience}</p>
-                        <ul>
-                            ${category.items.map(item => `<li>${item}</li>`).join('')}
-                        </ul>
-                    </div>
-                </div>
-            `).join('');
-        }
+        // Render the skills content
+        skillsContent.innerHTML = this.content.skills.categories.map(category => `
+            <button class="skill-button" onclick="toggleSkill(this)">
+                ${category.name}
+            </button>
+            <div class="skill-content">
+                <p class="skill-experience">${category.experience}</p>
+                <ul>
+                    ${category.items.map(item => `<li>${item}</li>`).join('')}
+                </ul>
+            </div>
+        `).join('');
     }
 
     // CV page

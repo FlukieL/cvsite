@@ -26,5 +26,9 @@ document.addEventListener('DOMContentLoaded', () => {
     // Set the correct path to the footer component
     const footerPath = isSubDir ? '../components/footer.html' : './components/footer.html';
     
-    loadComponent('footer-container', footerPath);
+    // Try both paths if the first one fails
+    loadComponent('footer-container', footerPath).catch(() => {
+        const alternativePath = isSubDir ? './components/footer.html' : '../components/footer.html';
+        loadComponent('footer-container', alternativePath);
+    });
 }); 
