@@ -34,11 +34,14 @@
                 "name": "Azure/365",
                 "experience": "8+ years professional experience",
                 "items": [
+                    "Azure Infrastructure:",
                     "Deployed several Azure environments hosting a variety of instances and use cases",
-                    "Utilised Azure Active Directory to allow customers to work entirely off Azure with seamless SSO",
                     "Deployed and managed virtual instances to provide redundant low latency services worldwide",
                     "Managed web hosting in Azure",
+                    "Azure Identity & Security:",
+                    "Utilised Azure Active Directory to allow customers to work entirely off Azure with seamless SSO",
                     "Deployed ADFS to allow seamless SSO and configured it to work with both native and third party applications along with externally facing two factor security",
+                    "Office 365:",
                     "Migrated users to Office 365 from a variety of different mail solutions with zero issues"
                 ]
             },
@@ -46,14 +49,18 @@
                 "name": "Active Directory",
                 "experience": "11+ years professional experience",
                 "items": [
+                    "Core Infrastructure:",
                     "Full working experience of systems from Server 2003 to 2016",
                     "Have built Active Directory structure for several customers from scratch",
                     "Migrated Active Directory, upgraded core servers",
+                    "File Systems & Storage:",
                     "Managed and created file systems utilising DFS, BranchCaching, Failover Clusters",
+                    "Security & Policy:",
                     "Full understanding of Group Policy for Desktops and Terminal services environments",
-                    "Created Remote Access solutions using DirectAccess, OpenVPN, SSL VPN",
                     "Created Security Policy for organisations matching compliance requirements",
-                    "Resolved severe security issues and restructured environment accordingly"
+                    "Resolved severe security issues and restructured environment accordingly",
+                    "Remote Access:",
+                    "Created Remote Access solutions using DirectAccess, OpenVPN, SSL VPN"
                 ]
             },
             {
@@ -78,16 +85,20 @@
                 "name": "Citrix XenApp/RDS",
                 "experience": "7 years professional experience",
                 "items": [
+                    "Core Infrastructure:",
                     "Worked with Citrix version 5.0 to 7.15",
                     "Configured XenApp Published Desktops and Applications for users",
                     "Configured several stable and efficient environments for thousands of concurrent users",
                     "Deployed seamless SSO Windows Remote Desktop and RemoteApp solutions for customers",
+                    "User Environment:",
                     "Configured full user profiles with folder redirection",
                     "Built an MCS Citrix AppLayered Windows Server 2016 environment that can scale with the userbase",
                     "Configured and user tested hundreds of apps from different vendors",
+                    "NetScaler/ADC:",
                     "Configured NetScaler/ADC Virtual Servers with SAML authentication and several Two Factors with full security configuration on SSL and HTTP headers",
                     "Themed NetScaler/ADC VS and Storefronts. configured dedicated storefronts",
                     "Configured NetScaler/ADC as an ADFS proxy for a redundant load balanced 2factor authentication which can work with internal application requirements",
+                    "Mobile & Security:",
                     "Configured XenMobile (now Citrix Endpoint Management) for integration of mobile devices to launch Citrix apps on MDM devices",
                     "Restricted environment to meet secure requirements also resulting in a consistent experience for all users"
                 ]

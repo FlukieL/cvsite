@@ -329,18 +329,37 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .skill-content li {
-    padding: 0.5rem 0;
+    margin-bottom: 0.5rem;
     position: relative;
     padding-left: 1.5rem;
+    font-size: 1rem;
     line-height: 1.6;
 }
 
 .skill-content li:before {
-    content: '•';
-    color: var(--primary-color);
+    content: "•";
     position: absolute;
     left: 0;
-    font-weight: bold;
+    color: var(--primary-color);
+}
+
+/* Subcategory styling */
+.skill-content li:has(+ li:not(:has(+ li:before))) {
+    font-weight: 600;
+    color: var(--primary-color);
+    margin-top: 1rem;
+    margin-bottom: 0.75rem;
+    padding-left: 0;
+    font-size: 1.1rem;
+}
+
+.skill-content li:has(+ li:not(:has(+ li:before))):before {
+    content: none;
+}
+
+/* Indent items under subcategories */
+.skill-content li:not(:has(+ li:not(:has(+ li:before)))) {
+    padding-left: 2rem;
 }
 
 @media (max-width: 768px) {
