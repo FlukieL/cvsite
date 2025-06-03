@@ -1,7 +1,7 @@
 {
     "site": {
         "title": "Luke Harper",
-        "description": "IT Professional specializing in Azure/365, Active Directory, Virtualization, and Citrix technologies"
+        "description": "IT Professional specialising in Azure/365, Active Directory, Virtualisation, and Citrix technologies"
     },
     "navigation": {
         "logo": "Luke Harper",
@@ -23,7 +23,7 @@
     "about": {
         "title": "About Me",
         "content": [
-            "I am an experienced IT professional with expertise in Azure/365, Active Directory, Virtualization, and Citrix technologies. With over 9 years of professional experience, I have helped organizations implement and manage complex IT infrastructure solutions.",
+            "I am an experienced IT professional with expertise in Azure/365, Active Directory, Virtualisation, and Citrix technologies. With over a decade of professional experience, I have helped organisations implement and manage complex IT infrastructure solutions.",
             "My focus is on creating efficient, secure, and scalable IT environments that enable businesses to operate effectively in today's digital landscape."
         ]
     },
@@ -32,19 +32,19 @@
         "categories": [
             {
                 "name": "Azure/365",
-                "experience": "5 years professional experience",
+                "experience": "8+ years professional experience",
                 "items": [
                     "Deployed several Azure environments hosting a variety of instances and use cases",
                     "Utilised Azure Active Directory to allow customers to work entirely off Azure with seamless SSO",
                     "Deployed and managed virtual instances to provide redundant low latency services worldwide",
                     "Managed web hosting in Azure",
-                    "Deployed ADFS to allow seamless SSO and configured it to work with both native and third party applications",
+                    "Deployed ADFS to allow seamless SSO and configured it to work with both native and third-party applications",
                     "Migrated users to Office 365 from a variety of different mail solutions with zero issues"
                 ]
             },
             {
                 "name": "Active Directory",
-                "experience": "9 years professional experience",
+                "experience": "11+ years professional experience",
                 "items": [
                     "Full working experience of systems from Server 2003 to 2016",
                     "Have built Active Directory structure for several customers from scratch",
@@ -58,10 +58,10 @@
             },
             {
                 "name": "Virtualisation",
-                "experience": "7 years professional experience",
+                "experience": "9+ years professional experience",
                 "items": [
                     "Built and deployed virtual machines onto an existing vCenter/ESXi infrastructure ranging from version 4.0 to 6.7",
-                    "Built several hosts from scratch from small scale deployments to high end servers",
+                    "Built several hosts from scratch from small-scale deployments to high-end servers",
                     "Implemented shared storage with both vSAN and VVols",
                     "Implemented several backup solutions utilising products like Veeam and Backup Exec",
                     "Built and deployed a variety of virtual machines on several Hyper-V clusters and individual hosts",
@@ -72,7 +72,7 @@
             },
             {
                 "name": "Citrix XenApp/RDS",
-                "experience": "7 years professional experience",
+                "experience": "9+ years professional experience",
                 "items": [
                     "Worked with Citrix version 5.0 to 7.15"
                 ]
