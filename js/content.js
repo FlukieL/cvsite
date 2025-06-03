@@ -140,6 +140,12 @@ class ContentManager {
             title.textContent = this.content.skills.title;
         }
 
+        // Remove profile header if it exists
+        const profileHeader = skillsSection.querySelector('.profile-header');
+        if (profileHeader) {
+            profileHeader.remove();
+        }
+
         const skillsGrid = skillsSection.querySelector('.skills-grid');
         if (skillsGrid) {
             skillsGrid.innerHTML = this.content.skills.categories.map(category => `
@@ -169,6 +175,12 @@ class ContentManager {
         const title = cvSection.querySelector('h1');
         if (title) {
             title.textContent = this.content.cv.title;
+        }
+
+        // Remove profile header if it exists
+        const profileHeader = cvSection.querySelector('.profile-header');
+        if (profileHeader) {
+            profileHeader.remove();
         }
 
         const downloadOptions = cvSection.querySelector('.download-options');
