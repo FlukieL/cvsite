@@ -27,6 +27,6 @@ async function loadComponent(elementId, componentPath) {
 
 // Load footer on page load
 document.addEventListener('DOMContentLoaded', () => {
-    const footerPath = '/components/footer.html';
+    const footerPath = './components/footer.html';
     loadComponent('footer-container', footerPath);
 }); 
