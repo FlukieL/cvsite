@@ -1,0 +1,17 @@
+# Build settings
+markdown: kramdown
+permalink: pretty
+
+# Collections
+collections:
+  pages:
+    output: true
+    permalink: /:path/
+
+# Default front matter
+defaults:
+  - scope:
+      path: ""
+      type: "pages"
+    values:
+      layout: "default" 
