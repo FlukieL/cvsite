@@ -73,6 +73,20 @@ h1, h2, h3, h4, h5, h6 {
     align-items: center;
 }
 
+.nav-logo-container {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.nav-profile-image {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    object-fit: cover;
+    display: none; /* Hidden by default, shown via JS on non-main pages */
+}
+
 .logo {
     font-family: var(--heading-font);
     font-size: 1.75rem;

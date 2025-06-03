@@ -64,6 +64,32 @@ class ContentManager {
         const nav = document.querySelector('.nav-content');
         if (!nav) return;
 
+        // Create logo container if it doesn't exist
+        let logoContainer = nav.querySelector('.nav-logo-container');
+        if (!logoContainer) {
+            logoContainer = document.createElement('div');
+            logoContainer.className = 'nav-logo-container';
+            const logo = nav.querySelector('.logo');
+            if (logo) {
+                logo.parentNode.insertBefore(logoContainer, logo);
+                logoContainer.appendChild(logo);
+            }
+        }
+
+        // Add profile image if not on main page
+        const isMainPage = window.location.pathname.endsWith('index.html') || window.location.pathname === '/';
+        if (!isMainPage) {
+            let profileImage = logoContainer.querySelector('.nav-profile-image');
+            if (!profileImage) {
+                profileImage = document.createElement('img');
+                profileImage.className = 'nav-profile-image';
+                profileImage.src = './images/professionalposer.png';
+                profileImage.alt = 'Luke Harper';
+                logoContainer.insertBefore(profileImage, logoContainer.firstChild);
+            }
+            profileImage.style.display = 'block';
+        }
+
         // Logo
         const logo = nav.querySelector('.logo');
         if (logo) {
