@@ -323,6 +323,16 @@ h1, h2, h3, h4, h5, h6 {
     border: none;
 }
 
+.cv-section .profile-image {
+    max-width: 220px;
+}
+
+.cv-section .cv-preview {
+    max-width: 900px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
 /* Responsive Design */
 @media (max-width: 768px) {
     .nav-content {
