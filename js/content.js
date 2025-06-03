@@ -185,7 +185,10 @@ class ContentManager {
                 </button>
                 <div class="skill-content">
                     <ul>
-                        ${category.items.map(item => `<li>${item}</li>`).join('')}
+                        ${category.items.map(item => {
+                            const isSubcategory = item.endsWith(':');
+                            return `<li class="${isSubcategory ? 'subcategory' : ''}">${item}</li>`;
+                        }).join('')}
                     </ul>
                 </div>
             </div>

@@ -344,7 +344,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 /* Subcategory styling */
-.skill-content li:has(+ li:not(:has(+ li:before))) {
+.skill-content li.subcategory {
     font-weight: 600;
     color: var(--primary-color);
     margin-top: 1rem;
@@ -353,12 +353,12 @@ h1, h2, h3, h4, h5, h6 {
     font-size: 1.1rem;
 }
 
-.skill-content li:has(+ li:not(:has(+ li:before))):before {
+.skill-content li.subcategory:before {
     content: none;
 }
 
 /* Indent items under subcategories */
-.skill-content li:not(:has(+ li:not(:has(+ li:before)))) {
+.skill-content li:not(.subcategory) {
     padding-left: 2rem;
 }
 
