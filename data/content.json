@@ -38,7 +38,7 @@
                     "Utilised Azure Active Directory to allow customers to work entirely off Azure with seamless SSO",
                     "Deployed and managed virtual instances to provide redundant low latency services worldwide",
                     "Managed web hosting in Azure",
-                    "Deployed ADFS to allow seamless SSO and configured it to work with both native and third-party applications",
+                    "Deployed ADFS to allow seamless SSO and configured it to work with both native and third party applications along with externally facing two factor security",
                     "Migrated users to Office 365 from a variety of different mail solutions with zero issues"
                 ]
             },
@@ -60,21 +60,122 @@
                 "name": "Virtualisation",
                 "experience": "9+ years professional experience",
                 "items": [
+                    "VMware (7 years):",
                     "Built and deployed virtual machines onto an existing vCenter/ESXi infrastructure ranging from version 4.0 to 6.7",
-                    "Built several hosts from scratch from small-scale deployments to high-end servers",
+                    "Built several hosts from scratch from small scale deployments to high end servers",
                     "Implemented shared storage with both vSAN and VVols",
                     "Implemented several backup solutions utilising products like Veeam and Backup Exec",
+                    "Hyper-V (5 years):",
                     "Built and deployed a variety of virtual machines on several Hyper-V clusters and individual hosts",
                     "Built and configured Networking infrastructure for Hyper-V",
                     "Configured Storage Spaces for shared storage on Hyper-V",
+                    "Troubleshooted many issues with existing Hyper-V configurations",
+                    "Citrix XenServer (6 years):",
                     "Managed XenServer maintaining virtual machines across several clusters and sites"
                 ]
             },
             {
                 "name": "Citrix XenApp/RDS",
-                "experience": "9+ years professional experience",
+                "experience": "7 years professional experience",
                 "items": [
-                    "Worked with Citrix version 5.0 to 7.15"
+                    "Worked with Citrix version 5.0 to 7.15",
+                    "Configured XenApp Published Desktops and Applications for users",
+                    "Configured several stable and efficient environments for thousands of concurrent users",
+                    "Deployed seamless SSO Windows Remote Desktop and RemoteApp solutions for customers",
+                    "Configured full user profiles with folder redirection",
+                    "Built an MCS Citrix AppLayered Windows Server 2016 environment that can scale with the userbase",
+                    "Configured and user tested hundreds of apps from different vendors",
+                    "Configured NetScaler/ADC Virtual Servers with SAML authentication and several Two Factors with full security configuration on SSL and HTTP headers",
+                    "Themed NetScaler/ADC VS and Storefronts. configured dedicated storefronts",
+                    "Configured NetScaler/ADC as an ADFS proxy for a redundant load balanced 2factor authentication which can work with internal application requirements",
+                    "Configured XenMobile (now Citrix Endpoint Management) for integration of mobile devices to launch Citrix apps on MDM devices",
+                    "Restricted environment to meet secure requirements also resulting in a consistent experience for all users"
+                ]
+            },
+            {
+                "name": "Networking",
+                "experience": "7+ years professional experience",
+                "items": [
+                    "Cisco (7 years):",
+                    "Deployed several Cisco Layer 3 switches creating segregated VLANs for Management, Wired and Wireless devices",
+                    "Resolved issues with connectivity on several Cisco based networks",
+                    "Upgraded and maintained several different switches",
+                    "Created QoS rules to prevent network overload",
+                    "Deployed and managed several Wireless Meraki solutions with RADIUS authentication",
+                    "Aerohive (4 years):",
+                    "Deployed and managed multiple Aerohive networks with various security policies and VLANS",
+                    "Deployed networks to varied sites such as retail units, offices and warehouses",
+                    "Maintained and resolved core issues creating stable wireless networks",
+                    "Palo Alto Firewalls (4 years):",
+                    "Deployed and managed multiple Palo Alto firewall units both physical and virtual",
+                    "Created full network security policies for medium to large scale businesses",
+                    "Resolved issues with telephony restrictions and access restrictions",
+                    "Created network restriction policies to increase security",
+                    "Managed end to end encrypted VPN tunnels",
+                    "Configured HA pairs with WAN failover",
+                    "SonicWall Firewalls (4 years):",
+                    "Managed multiple SonicWall firewall units across different customers",
+                    "Managed network policies",
+                    "Managed connected wireless access points",
+                    "Resolved issues with connectivity between offices",
+                    "HP Aruba (2 years):",
+                    "Deployed and configured several HP Aruba switches with segregated VLANS",
+                    "Configured switches to connect to Cisco network to allow cross platform communications"
+                ]
+            },
+            {
+                "name": "Storage",
+                "experience": "7 years professional experience",
+                "items": [
+                    "Worked with:",
+                    "EMC VNX/VNXe Storage",
+                    "Dell EqualLogic",
+                    "HP StorageWorks",
+                    "NetApp Storage",
+                    "HP 3PAR",
+                    "Configured several SAN arrays from scratch connecting to a variety of virtual environments"
+                ]
+            },
+            {
+                "name": "Exchange",
+                "experience": "6 years professional experience",
+                "items": [
+                    "Worked with systems from 2003 to 2016 along with 365",
+                    "Added Skype for Business for instant messaging both on site and connected to Azure",
+                    "Supported users mailboxes with restores",
+                    "Migrated users across domains",
+                    "Joined mailboxes with SharePoint for collaborative working",
+                    "Ran maintenance tasks on Exchange Servers",
+                    "Added and maintained several anti-spam/virus applications to transport mail flow"
+                ]
+            },
+            {
+                "name": "General",
+                "experience": "",
+                "items": [
+                    "Highly familiar with both Windows and Linux environments",
+                    "Ability to approach issues from a unique perspective attempting to not only solve an issue but gain understanding of what caused it and how to prevent it from recurring",
+                    "Approachable, friendly and always willing to listen and assist with any customer",
+                    "Strong ability to document implementations with clearly written and helpful information",
+                    "Reliable, will never leave a core issue unresolved"
+                ]
+            },
+            {
+                "name": "Legacy",
+                "experience": "3 years professional experience",
+                "items": [
+                    "Novell e-Directory:",
+                    "Managed both Netware and Novell Open Enterprise Server machines on a large environment",
+                    "Configured and joined Netware and Novell OES servers to existing e-directory tree as well as configured a secondary e-directory tree",
+                    "Installed backup agents and anti-virus agents on these servers and configured them to update and receive their policies from the main server",
+                    "Novell Zenworks:",
+                    "Worked with versions 7-11",
+                    "Created and deployed several silent Zenworks bundles for a variety of applications with different install methods varying from launch and install to silent background installations",
+                    "Created and deployed Remote Management Policy in Zenworks 11",
+                    "Built Zenworks environment from scratch and successfully implemented patch management",
+                    "Novell Groupwise:",
+                    "Supported multiple Groupwise mailboxes at several different sites connected to the same MTA",
+                    "Resolved core issues with Groupwise servers"
                 ]
             }
         ]

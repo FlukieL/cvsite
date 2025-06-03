@@ -1,14 +1,48 @@
 // Toggle skill sections
 function toggleSkill(button) {
     const content = button.nextElementSibling;
-    const icon = button.querySelector('.toggle-icon');
+    const allContents = document.querySelectorAll('.skill-content');
+    const allButtons = document.querySelectorAll('.skill-button');
     
-    content.classList.toggle('active');
+    // Close all other sections
+    allContents.forEach(section => {
+        if (section !== content) {
+            section.style.display = 'none';
+            section.previousElementSibling.classList.remove('active');
+        }
+    });
     
-    if (content.classList.contains('active')) {
-        icon.textContent = '−';
+    // Toggle current section
+    if (content.style.display === 'block') {
+        content.style.display = 'none';
+        button.classList.remove('active');
     } else {
-        icon.textContent = '+';
+        content.style.display = 'block';
+        button.classList.add('active');
+    }
+}
+
+function expandAll() {
+    const allContents = document.querySelectorAll('.skill-content');
+    const allButtons = document.querySelectorAll('.skill-button');
+    const expandAllBtn = document.getElementById('expandAllBtn');
+    
+    if (expandAllBtn.textContent === 'Expand All') {
+        allContents.forEach(content => {
+            content.style.display = 'block';
+        });
+        allButtons.forEach(button => {
+            button.classList.add('active');
+        });
+        expandAllBtn.textContent = 'Collapse All';
+    } else {
+        allContents.forEach(content => {
+            content.style.display = 'none';
+        });
+        allButtons.forEach(button => {
+            button.classList.remove('active');
+        });
+        expandAllBtn.textContent = 'Expand All';
     }
 }
 
