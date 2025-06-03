@@ -67,7 +67,12 @@ document.addEventListener('DOMContentLoaded', () => {
                 
                 // Navigate after animation
                 setTimeout(() => {
-                    window.location.href = href;
+                    // Handle root path
+                    if (href === '/') {
+                        window.location.href = '/index.html';
+                    } else {
+                        window.location.href = href + '.html';
+                    }
                 }, 150);
             }
         });

@@ -94,7 +94,8 @@ class ContentManager {
                 }
 
                 // Add profile image if not on main page
-                const isMainPage = window.location.pathname.endsWith('index.html') || window.location.pathname === '/';
+                const currentPath = window.location.pathname;
+                const isMainPage = currentPath === '/' || currentPath === '/index.html';
                 if (!isMainPage) {
                     let profileImage = logoContainer.querySelector('.nav-profile-image');
                     if (!profileImage) {
@@ -116,11 +117,15 @@ class ContentManager {
                 // Navigation links
                 const navLinks = nav.querySelector('.nav-links');
                 if (navLinks) {
-                    navLinks.innerHTML = this.content.navigation.links.map(link => `
-                        <a href="${link.url}" ${window.location.pathname.endsWith(link.url) ? 'class="active"' : ''}>
-                            ${link.text}
-                        </a>
-                    `).join('');
+                    navLinks.innerHTML = this.content.navigation.links.map(link => {
+                        const isActive = (link.url === '/' && currentPath === '/') || 
+                                      (link.url !== '/' && currentPath.startsWith(link.url));
+                        return `
+                            <a href="${link.url}" ${isActive ? 'class="active"' : ''}>
+                                ${link.text}
+                            </a>
+                        `;
+                    }).join('');
                 }
             } catch (error) {
                 console.error('Error rendering navigation:', error);

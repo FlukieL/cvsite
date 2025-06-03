@@ -8,15 +8,15 @@
         "links": [
             {
                 "text": "About Me",
-                "url": "index.html"
+                "url": "/"
             },
             {
                 "text": "Skills",
-                "url": "skills.html"
+                "url": "/skills"
             },
             {
                 "text": "CV",
-                "url": "cv.html"
+                "url": "/cv"
             }
         ]
     },
