@@ -1,6 +1,7 @@
 # Build settings
 markdown: kramdown
 permalink: pretty
+baseurl: "/cvsite"
 
 # Collections
 collections:

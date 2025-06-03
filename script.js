@@ -1,3 +1,6 @@
+// Base URL configuration
+const baseUrl = '/cvsite';
+
 // Toggle skill sections
 function toggleSkill(button) {
     const content = button.nextElementSibling;
@@ -70,7 +73,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 
                 // Navigate after animation
                 setTimeout(() => {
-                    window.location.href = href;
+                    window.location.href = baseUrl + href;
                 }, 150);
             }
         });
