@@ -297,13 +297,14 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .skill-content {
-    padding: 1.5rem;
+    max-height: 0;
+    opacity: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease-out, opacity 0.3s ease-out;
     background-color: white;
-    border: 1px solid var(--border-color);
-    border-top: none;
     border-radius: 0 0 0.5rem 0.5rem;
     margin-top: -0.5rem;
-    display: none;
+    padding: 0 1.25rem;
 }
 
 .skill-content.active {
@@ -324,8 +325,7 @@ h1, h2, h3, h4, h5, h6 {
 
 .skill-content ul {
     list-style: none;
-    padding: 0;
-    margin: 0;
+    padding: 1rem 0;
 }
 
 .skill-content li {

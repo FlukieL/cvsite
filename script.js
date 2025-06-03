@@ -7,29 +7,43 @@ function toggleSkill(button) {
     document.querySelectorAll('.skill-button.active').forEach(activeButton => {
         if (activeButton !== button) {
             activeButton.classList.remove('active');
-            activeButton.nextElementSibling.classList.remove('active');
+            const otherContent = activeButton.nextElementSibling;
+            otherContent.style.maxHeight = '0';
+            otherContent.style.opacity = '0';
         }
     });
     
     // Toggle current section
     button.classList.toggle('active');
-    content.classList.toggle('active');
+    if (isActive) {
+        content.style.maxHeight = '0';
+        content.style.opacity = '0';
+    } else {
+        content.style.maxHeight = content.scrollHeight + 'px';
+        content.style.opacity = '1';
+    }
 }
 
 function expandAll() {
     const buttons = document.querySelectorAll('.skill-button');
+    const expandBtn = document.getElementById('expandAllBtn');
     const isExpanded = buttons[0]?.classList.contains('active');
     
     buttons.forEach(button => {
         const content = button.nextElementSibling;
         if (isExpanded) {
             button.classList.remove('active');
-            content.classList.remove('active');
+            content.style.maxHeight = '0';
+            content.style.opacity = '0';
         } else {
             button.classList.add('active');
-            content.classList.add('active');
+            content.style.maxHeight = content.scrollHeight + 'px';
+            content.style.opacity = '1';
         }
     });
+    
+    // Update button text
+    expandBtn.textContent = isExpanded ? 'Expand All' : 'Collapse All';
 }
 
 // Page transition handling
