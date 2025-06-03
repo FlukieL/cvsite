@@ -19,16 +19,5 @@ async function loadComponent(elementId, componentPath) {
 
 // Load footer on page load
 document.addEventListener('DOMContentLoaded', () => {
-    // Get the current page's path
-    const currentPath = window.location.pathname;
-    // Determine if we're in a subdirectory
-    const isSubDir = currentPath.split('/').length > 2;
-    // Set the correct path to the footer component
-    const footerPath = isSubDir ? '../components/footer.html' : './components/footer.html';
-    
-    // Try both paths if the first one fails
-    loadComponent('footer-container', footerPath).catch(() => {
-        const alternativePath = isSubDir ? './components/footer.html' : '../components/footer.html';
-        loadComponent('footer-container', alternativePath);
-    });
+    loadComponent('footer-container', './components/footer.html');
 }); 
