@@ -273,6 +273,12 @@ h1, h2, h3, h4, h5, h6 {
 
 /* CV Page */
 .cv-section {
+    width: 80%;
+    margin: 0 auto;
+    padding: 2rem;
+    background-color: var(--background-color);
+    border-radius: 1rem;
+    box-shadow: var(--card-shadow);
     text-align: center;
     animation: fadeIn 0.5s ease-in-out;
 }
