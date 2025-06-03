@@ -398,10 +398,11 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .footer {
-    background-color: #f8f9fa;
+    background-color: var(--background-color);
     padding: 1.5rem 0;
     margin-top: 3rem;
-    border-top: 1px solid #e9ecef;
+    border-top: 1px solid var(--border-color);
+    box-shadow: var(--card-shadow);
 }
 
 .footer-content {
@@ -414,18 +415,29 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .footer-link {
-    color: #495057;
+    color: var(--text-color);
     text-decoration: none;
     display: flex;
     align-items: center;
     gap: 0.5rem;
-    transition: color 0.3s ease;
+    transition: all var(--transition-speed);
+    font-weight: 500;
 }
 
 .footer-link:hover {
-    color: #212529;
+    color: var(--primary-color);
+    transform: translateY(-2px);
 }
 
 .footer-link i {
     font-size: 1.2rem;
+    color: var(--primary-color);
+}
+
+@media (max-width: 768px) {
+    .footer-content {
+        flex-direction: column;
+        align-items: center;
+        gap: 1rem;
+    }
 } 
