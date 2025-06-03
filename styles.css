@@ -240,24 +240,48 @@ h1, h2, h3, h4, h5, h6 {
     transform: translateY(-2px);
 }
 
+.skill-category {
+    margin-bottom: 1rem;
+}
+
 .skill-button {
     width: 100%;
-    padding: 1.5rem;
+    padding: 1.25rem;
     background-color: var(--secondary-background);
     border: 1px solid var(--border-color);
     border-radius: 0.5rem;
     text-align: left;
     font-size: 1.25rem;
-    font-weight: 600;
-    color: var(--text-color);
+    display: flex;
+    align-items: center;
+    gap: 1rem;
     cursor: pointer;
     transition: all var(--transition-speed);
-    margin-bottom: 0.5rem;
-    position: relative;
+}
+
+.skill-button i {
+    font-size: 1.5rem;
+    color: var(--primary-color);
+    width: 2rem;
+    text-align: center;
+}
+
+.skill-button span {
+    flex: 1;
+}
+
+.experience-badge {
+    background-color: var(--primary-color);
+    color: white;
+    padding: 0.25rem 0.75rem;
+    border-radius: 1rem;
+    font-size: 0.875rem;
+    font-weight: 500;
 }
 
 .skill-button:hover {
     background-color: var(--border-color);
+    transform: translateY(-2px);
 }
 
 .skill-button.active {
@@ -265,38 +289,60 @@ h1, h2, h3, h4, h5, h6 {
     color: white;
 }
 
+.skill-button.active i {
+    color: white;
+}
+
+.skill-button.active .experience-badge {
+    background-color: white;
+    color: var(--primary-color);
+}
+
 .skill-content {
-    display: none;
     padding: 1.5rem;
-    background-color: var(--background-color);
+    background-color: white;
     border: 1px solid var(--border-color);
-    border-radius: 0.5rem;
-    margin-bottom: 1rem;
+    border-top: none;
+    border-radius: 0 0 0.5rem 0.5rem;
+    margin-top: -0.5rem;
+    display: none;
+}
+
+.skill-content.active {
+    display: block;
+    animation: slideDown 0.3s ease-out;
+}
+
+@keyframes slideDown {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 .skill-content ul {
     list-style: none;
     padding: 0;
-    margin: 1rem 0;
+    margin: 0;
 }
 
 .skill-content li {
-    margin-bottom: 0.75rem;
-    padding-left: 1.5rem;
+    padding: 0.5rem 0;
     position: relative;
+    padding-left: 1.5rem;
+    line-height: 1.6;
 }
 
 .skill-content li:before {
-    content: "•";
+    content: '•';
     color: var(--primary-color);
     position: absolute;
     left: 0;
-}
-
-.skill-experience {
-    color: var(--primary-color);
-    font-weight: 500;
-    margin-bottom: 1rem;
+    font-weight: bold;
 }
 
 @media (max-width: 768px) {
@@ -305,14 +351,23 @@ h1, h2, h3, h4, h5, h6 {
         gap: 1rem;
         text-align: center;
     }
-    
+
     .skills-header h1 {
         font-size: 2rem;
     }
-    
+
     .skill-button {
+        padding: 1rem;
         font-size: 1.1rem;
-        padding: 1.25rem;
+    }
+
+    .skill-button i {
+        font-size: 1.25rem;
+    }
+
+    .experience-badge {
+        font-size: 0.75rem;
+        padding: 0.2rem 0.5rem;
     }
 }
 

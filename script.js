@@ -1,49 +1,35 @@
 // Toggle skill sections
 function toggleSkill(button) {
     const content = button.nextElementSibling;
-    const allContents = document.querySelectorAll('.skill-content');
-    const allButtons = document.querySelectorAll('.skill-button');
+    const isActive = button.classList.contains('active');
     
     // Close all other sections
-    allContents.forEach(section => {
-        if (section !== content) {
-            section.style.display = 'none';
-            section.previousElementSibling.classList.remove('active');
+    document.querySelectorAll('.skill-button.active').forEach(activeButton => {
+        if (activeButton !== button) {
+            activeButton.classList.remove('active');
+            activeButton.nextElementSibling.classList.remove('active');
         }
     });
     
     // Toggle current section
-    if (content.style.display === 'block') {
-        content.style.display = 'none';
-        button.classList.remove('active');
-    } else {
-        content.style.display = 'block';
-        button.classList.add('active');
-    }
+    button.classList.toggle('active');
+    content.classList.toggle('active');
 }
 
 function expandAll() {
-    const allContents = document.querySelectorAll('.skill-content');
-    const allButtons = document.querySelectorAll('.skill-button');
-    const expandAllBtn = document.getElementById('expandAllBtn');
+    const buttons = document.querySelectorAll('.skill-button');
+    const isExpanded = buttons[0]?.classList.contains('active');
     
-    if (expandAllBtn.textContent === 'Expand All') {
-        allContents.forEach(content => {
-            content.style.display = 'block';
-        });
-        allButtons.forEach(button => {
-            button.classList.add('active');
-        });
-        expandAllBtn.textContent = 'Collapse All';
-    } else {
-        allContents.forEach(content => {
-            content.style.display = 'none';
-        });
-        allButtons.forEach(button => {
+    buttons.forEach(button => {
+        const content = button.nextElementSibling;
+        if (isExpanded) {
             button.classList.remove('active');
-        });
-        expandAllBtn.textContent = 'Expand All';
-    }
+            content.classList.remove('active');
+        } else {
+            button.classList.add('active');
+            content.classList.add('active');
+        }
+    });
 }
 
 // Page transition handling

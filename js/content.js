@@ -141,16 +141,32 @@ class ContentManager {
             title.textContent = this.content.skills.title;
         }
 
+        // Map of skill categories to their corresponding Font Awesome icons
+        const skillIcons = {
+            'Azure/365': 'fa-microsoft',
+            'Active Directory': 'fa-server',
+            'Virtualisation': 'fa-cube',
+            'Citrix XenApp/RDS': 'fa-desktop',
+            'Networking': 'fa-network-wired',
+            'Storage': 'fa-database',
+            'Exchange': 'fa-envelope',
+            'General': 'fa-user-tie',
+            'Legacy': 'fa-history'
+        };
+
         // Render the skills content
         skillsContent.innerHTML = this.content.skills.categories.map(category => `
-            <button class="skill-button" onclick="toggleSkill(this)">
-                ${category.name}
-            </button>
-            <div class="skill-content">
-                <p class="skill-experience">${category.experience}</p>
-                <ul>
-                    ${category.items.map(item => `<li>${item}</li>`).join('')}
-                </ul>
+            <div class="skill-category">
+                <button class="skill-button" onclick="toggleSkill(this)">
+                    <i class="fas ${skillIcons[category.name] || 'fa-star'}"></i>
+                    <span>${category.name}</span>
+                    ${category.experience ? `<span class="experience-badge">${category.experience}</span>` : ''}
+                </button>
+                <div class="skill-content">
+                    <ul>
+                        ${category.items.map(item => `<li>${item}</li>`).join('')}
+                    </ul>
+                </div>
             </div>
         `).join('');
     }
