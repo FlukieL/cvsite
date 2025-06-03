@@ -25,7 +25,28 @@ async function loadComponent(elementId, componentPath, retries = 3) {
             if (element) {
                 element.innerHTML = html;
                 console.log(`Successfully loaded component: ${componentPath}`);
-                return true;
+                // Return a promise that resolves when the component is in the DOM
+                return new Promise(resolve => {
+                    // Use MutationObserver to detect when the component is actually in the DOM
+                    const observer = new MutationObserver((mutations, obs) => {
+                        const navContent = document.querySelector('.nav-content');
+                        if (navContent) {
+                            obs.disconnect();
+                            resolve(true);
+                        }
+                    });
+                    
+                    observer.observe(document.body, {
+                        childList: true,
+                        subtree: true
+                    });
+                    
+                    // Fallback timeout
+                    setTimeout(() => {
+                        observer.disconnect();
+                        resolve(true);
+                    }, 1000);
+                });
             } else {
                 console.error(`Element with id ${elementId} not found`);
                 return false;
@@ -48,17 +69,13 @@ document.addEventListener('DOMContentLoaded', async () => {
     const footerPath = './components/footer.html';
     const navbarPath = './components/navbar.html';
     
-    // Load components in parallel
-    const [footerLoaded, navbarLoaded] = await Promise.all([
-        loadComponent('footer-container', footerPath),
-        loadComponent('navbar-container', navbarPath)
-    ]);
+    // Load navbar first, then footer
+    const navbarLoaded = await loadComponent('navbar-container', navbarPath);
     
-    // If navbar failed to load, try one more time after a short delay
-    if (!navbarLoaded) {
-        console.log('Retrying navbar load after delay...');
-        setTimeout(() => {
-            loadComponent('navbar-container', navbarPath);
-        }, 1000);
+    // Only load footer after navbar is confirmed loaded
+    if (navbarLoaded) {
+        await loadComponent('footer-container', footerPath);
+    } else {
+        console.error('Navbar failed to load, skipping footer');
     }
 }); 

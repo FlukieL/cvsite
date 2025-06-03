@@ -61,50 +61,71 @@ class ContentManager {
     renderNavigation() {
         if (!this.content) return;
 
-        const nav = document.querySelector('.nav-content');
-        if (!nav) return;
+        // Wait for nav-content to be available
+        const waitForNav = () => {
+            return new Promise((resolve) => {
+                const checkNav = () => {
+                    const nav = document.querySelector('.nav-content');
+                    if (nav) {
+                        resolve(nav);
+                    } else {
+                        setTimeout(checkNav, 100);
+                    }
+                };
+                checkNav();
+            });
+        };
 
-        // Create logo container if it doesn't exist
-        let logoContainer = nav.querySelector('.nav-logo-container');
-        if (!logoContainer) {
-            logoContainer = document.createElement('div');
-            logoContainer.className = 'nav-logo-container';
-            const logo = nav.querySelector('.logo');
-            if (logo) {
-                logo.parentNode.insertBefore(logoContainer, logo);
-                logoContainer.appendChild(logo);
+        // Use async IIFE to handle the waiting
+        (async () => {
+            try {
+                const nav = await waitForNav();
+                
+                // Create logo container if it doesn't exist
+                let logoContainer = nav.querySelector('.nav-logo-container');
+                if (!logoContainer) {
+                    logoContainer = document.createElement('div');
+                    logoContainer.className = 'nav-logo-container';
+                    const logo = nav.querySelector('.logo');
+                    if (logo) {
+                        logo.parentNode.insertBefore(logoContainer, logo);
+                        logoContainer.appendChild(logo);
+                    }
+                }
+
+                // Add profile image if not on main page
+                const isMainPage = window.location.pathname.endsWith('index.html') || window.location.pathname === '/';
+                if (!isMainPage) {
+                    let profileImage = logoContainer.querySelector('.nav-profile-image');
+                    if (!profileImage) {
+                        profileImage = document.createElement('img');
+                        profileImage.className = 'nav-profile-image';
+                        profileImage.src = './images/professionalposer.png';
+                        profileImage.alt = 'Luke Harper';
+                        logoContainer.insertBefore(profileImage, logoContainer.firstChild);
+                    }
+                    profileImage.style.display = 'block';
+                }
+
+                // Logo
+                const logo = nav.querySelector('.logo');
+                if (logo) {
+                    logo.textContent = this.content.navigation.logo;
+                }
+
+                // Navigation links
+                const navLinks = nav.querySelector('.nav-links');
+                if (navLinks) {
+                    navLinks.innerHTML = this.content.navigation.links.map(link => `
+                        <a href="${link.url}" ${window.location.pathname.endsWith(link.url) ? 'class="active"' : ''}>
+                            ${link.text}
+                        </a>
+                    `).join('');
+                }
+            } catch (error) {
+                console.error('Error rendering navigation:', error);
             }
-        }
-
-        // Add profile image if not on main page
-        const isMainPage = window.location.pathname.endsWith('index.html') || window.location.pathname === '/';
-        if (!isMainPage) {
-            let profileImage = logoContainer.querySelector('.nav-profile-image');
-            if (!profileImage) {
-                profileImage = document.createElement('img');
-                profileImage.className = 'nav-profile-image';
-                profileImage.src = './images/professionalposer.png';
-                profileImage.alt = 'Luke Harper';
-                logoContainer.insertBefore(profileImage, logoContainer.firstChild);
-            }
-            profileImage.style.display = 'block';
-        }
-
-        // Logo
-        const logo = nav.querySelector('.logo');
-        if (logo) {
-            logo.textContent = this.content.navigation.logo;
-        }
-
-        // Navigation links
-        const navLinks = nav.querySelector('.nav-links');
-        if (navLinks) {
-            navLinks.innerHTML = this.content.navigation.links.map(link => `
-                <a href="${link.url}" ${window.location.pathname.endsWith(link.url) ? 'class="active"' : ''}>
-                    ${link.text}
-                </a>
-            `).join('');
-        }
+        })();
     }
 
     // About page
