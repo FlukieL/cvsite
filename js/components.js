@@ -1,10 +1,18 @@
 // Function to load HTML components
 async function loadComponent(elementId, componentPath) {
     try {
-        const response = await fetch(componentPath);
+        const response = await fetch(componentPath, {
+            method: 'GET',
+            headers: {
+                'Accept': 'text/html'
+            },
+            cache: 'no-cache'
+        });
+        
         if (!response.ok) {
             throw new Error(`HTTP error! status: ${response.status}`);
         }
+        
         const html = await response.text();
         const element = document.getElementById(elementId);
         if (element) {
@@ -19,5 +27,6 @@ async function loadComponent(elementId, componentPath) {
 
 // Load footer on page load
 document.addEventListener('DOMContentLoaded', () => {
-    loadComponent('footer-container', './components/footer.html');
+    const footerPath = '/components/footer.html';
+    loadComponent('footer-container', footerPath);
 }); 
