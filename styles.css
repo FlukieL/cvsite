@@ -11,7 +11,7 @@
     --secondary-color: #7c3aed; /* purple */
     --accent-color: #14b8a6; /* teal */
     --text-color: #1f2937;
-    --background-color: #ffffff;
+    --background-color: #f9fafb; /* softer off-white */
     --secondary-background: #f3f4f6;
     --border-color: #e5e7eb;
     --hover-color: #1d4ed8;
@@ -241,9 +241,9 @@ h1, h2, h3, h4, h5, h6 {
     position: absolute;
     inset: -10% -5% -5% -5%;
     z-index: -1;
-    background: radial-gradient(1200px 600px at 10% 10%, rgba(37, 99, 235, 0.08), transparent 60%),
-                radial-gradient(900px 400px at 90% 20%, rgba(124, 58, 237, 0.07), transparent 60%),
-                radial-gradient(700px 300px at 50% 100%, rgba(20, 184, 166, 0.06), transparent 60%);
+    background: radial-gradient(1200px 600px at 10% 10%, rgba(37, 99, 235, 0.05), transparent 60%),
+                radial-gradient(900px 400px at 90% 20%, rgba(124, 58, 237, 0.05), transparent 60%),
+                radial-gradient(700px 300px at 50% 100%, rgba(20, 184, 166, 0.04), transparent 60%);
     pointer-events: none;
 }
 
@@ -290,7 +290,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .expand-all-btn {
-    background-color: var(--primary-color);
+    background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
     color: white;
     border: none;
     padding: 0.75rem 1.5rem;
@@ -302,7 +302,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .expand-all-btn:hover {
-    background-color: var(--hover-color);
+    filter: brightness(0.95);
     transform: translateY(-2px);
 }
 
@@ -347,12 +347,16 @@ h1, h2, h3, h4, h5, h6 {
 
 .skill-button:hover {
     background-color: var(--border-color);
+    border-color: var(--accent-color);
+    box-shadow: 0 6px 12px rgba(20, 184, 166, 0.12);
     transform: translateY(-2px);
 }
 
 .skill-button.active {
-    background-color: var(--primary-color);
+    background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
     color: white;
+    border-color: transparent;
+    box-shadow: 0 10px 15px -3px rgba(37, 99, 235, 0.15), 0 4px 6px -2px rgba(124, 58, 237, 0.12);
 }
 
 .skill-button.active i {
@@ -408,7 +412,7 @@ h1, h2, h3, h4, h5, h6 {
     content: "•";
     position: absolute;
     left: 0;
-    color: var(--primary-color);
+    color: var(--accent-color);
 }
 
 /* Subcategory styling */
