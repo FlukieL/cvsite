@@ -140,16 +140,31 @@ class ContentManager {
         const aboutSection = document.querySelector('.about-section');
         if (!aboutSection) return;
 
-        const title = aboutSection.querySelector('h1');
-        if (title) {
-            title.textContent = this.content.about.title;
-        }
-
         const content = aboutSection.querySelector('.about-content');
         if (content) {
+            const rawTitle = this.content.about.title || '';
+            const [firstWord, ...restWords] = rawTitle.split(' ');
+            const accentedTitle = restWords.length > 0
+                ? `<span class="accent">${firstWord}</span> ${restWords.join(' ')}`
+                : `<span class="accent">${rawTitle}</span>`;
+
+            const paragraphsHtml = Array.isArray(this.content.about.content)
+                ? this.content.about.content.map(paragraph => `<p>${paragraph}</p>`).join('')
+                : '';
+
             content.innerHTML = `
-                <h1>${this.content.about.title}</h1>
-                ${this.content.about.content.map(paragraph => `<p>${paragraph}</p>`).join('')}
+                <h1>${accentedTitle}</h1>
+                ${paragraphsHtml}
+                <div class="cta-group">
+                    <a class="btn btn-primary" href="skills.html" aria-label="Explore skills">
+                        <i class="fa-solid fa-list-check" aria-hidden="true"></i>
+                        Explore skills
+                    </a>
+                    <a class="btn btn-secondary" href="cv.html" aria-label="View CV">
+                        <i class="fa-solid fa-file-pdf" aria-hidden="true"></i>
+                        View CV
+                    </a>
+                </div>
             `;
         }
     }
