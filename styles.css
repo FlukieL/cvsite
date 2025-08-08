@@ -11,7 +11,7 @@
     --secondary-color: #7c3aed; /* purple */
     --accent-color: #14b8a6; /* teal */
     --text-color: #1f2937;
-    --background-color: #f9fafb; /* softer off-white */
+    --background-color: #f4f6f8; /* lighter neutral */
     --secondary-background: #f3f4f6;
     --border-color: #e5e7eb;
     --hover-color: #1d4ed8;
@@ -256,6 +256,7 @@ h1, h2, h3, h4, h5, h6 {
 /* Skills Page */
 .skills-section {
     animation: fadeIn 0.5s ease-in-out;
+    background: radial-gradient(1000px 600px at 50% -10%, rgba(255,255,255,0.5), transparent 60%);
 }
 
 .profile-header {
@@ -274,6 +275,10 @@ h1, h2, h3, h4, h5, h6 {
     max-width: 1200px;
     margin: 0 auto;
     padding: 2rem;
+    background: rgba(255, 255, 255, 0.4);
+    -webkit-backdrop-filter: blur(2px);
+    backdrop-filter: blur(2px);
+    border-radius: 0.75rem;
 }
 
 .skills-header {
@@ -313,7 +318,7 @@ h1, h2, h3, h4, h5, h6 {
 .skill-button {
     width: 100%;
     padding: 1.25rem;
-    background-color: var(--secondary-background);
+    background-color: #fbfcfe; /* near-white to match panels */
     border: 1px solid var(--border-color);
     border-radius: 0.5rem;
     text-align: left;
@@ -373,7 +378,7 @@ h1, h2, h3, h4, h5, h6 {
     opacity: 0;
     overflow: hidden;
     transition: max-height 0.3s ease-out, opacity 0.3s ease-out;
-    background-color: white;
+    background-color: #ffffff;
     border-radius: 0 0 0.5rem 0.5rem;
     margin-top: -0.5rem;
     padding: 0 1.25rem;
