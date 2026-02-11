@@ -126,8 +126,11 @@ class ContentManager {
                 const navLinks = nav.querySelector('.nav-links');
                 if (navLinks) {
                     navLinks.innerHTML = this.content.navigation.links.map(link => {
-                        const isActive = (link.url === 'index.html' && (currentPath.endsWith('index.html') || currentPath === '/')) ||
-                            (link.url !== 'index.html' && currentPath.endsWith(link.url));
+                        // Handle both .html and extensionless paths
+                        const linkBase = link.url.replace('.html', '');
+                        const currentSegment = currentPath.split('/').pop().split('?')[0].replace('.html', '');
+                        const isActive = (linkBase === 'index' && (currentSegment === 'index' || currentSegment === '')) ||
+                            (linkBase !== 'index' && currentSegment === linkBase);
                         return `
                             <a href="${link.url}" ${isActive ? 'class="active"' : ''}>
                                 ${link.text}
