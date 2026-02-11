@@ -5,7 +5,7 @@ const baseUrl = '/cvsite';
 function toggleSkill(button) {
     const content = button.nextElementSibling;
     const isActive = button.classList.contains('active');
-    
+
     // Close all other sections
     document.querySelectorAll('.skill-button.active').forEach(activeButton => {
         if (activeButton !== button) {
@@ -15,7 +15,7 @@ function toggleSkill(button) {
             otherContent.style.opacity = '0';
         }
     });
-    
+
     // Toggle current section
     button.classList.toggle('active');
     if (isActive) {
@@ -31,7 +31,7 @@ function expandAll() {
     const buttons = document.querySelectorAll('.skill-button');
     const expandBtn = document.getElementById('expandAllBtn');
     const isExpanded = buttons[0]?.classList.contains('active');
-    
+
     buttons.forEach(button => {
         const content = button.nextElementSibling;
         if (isExpanded) {
@@ -44,7 +44,7 @@ function expandAll() {
             content.style.opacity = '1';
         }
     });
-    
+
     // Update button text
     expandBtn.textContent = isExpanded ? 'Expand All' : 'Collapse All';
 }
@@ -53,11 +53,17 @@ function expandAll() {
 document.addEventListener('DOMContentLoaded', () => {
     // Set body opacity to 1 on page load
     document.body.style.opacity = '1';
-    
+
     // Add page transition class to main content
     const mainContent = document.querySelector('main');
     if (mainContent) {
         mainContent.classList.add('page-transition');
+    }
+
+    // Check for dark mode (18:00 - 06:00)
+    const hours = new Date().getHours();
+    if (hours >= 18 || hours < 6) {
+        document.body.classList.add('dark-mode');
     }
 
     // Handle navigation clicks
@@ -67,10 +73,10 @@ document.addEventListener('DOMContentLoaded', () => {
             if (link.hostname === window.location.hostname) {
                 e.preventDefault();
                 const href = link.getAttribute('href');
-                
+
                 // Add fade-out animation
                 document.body.style.opacity = '0';
-                
+
                 // Navigate after animation
                 setTimeout(() => {
                     window.location.href = baseUrl + href;

@@ -595,28 +595,26 @@ h6 {
     }
 }
 
-/* Auto dark mode */
-@media (prefers-color-scheme: dark) {
-    :root {
-        --text-color: #e5e7eb;
-        --background-color: #0b0f17;
-        --secondary-background: #121826;
-        --border-color: #1f2937;
-        --card-shadow: 0 6px 18px rgba(0, 0, 0, 0.45);
-    }
+/* Manual dark mode */
+body.dark-mode {
+    --text-color: #e5e7eb;
+    --background-color: #0b0f17;
+    --secondary-background: #121826;
+    --border-color: #1f2937;
+    --card-shadow: 0 6px 18px rgba(0, 0, 0, 0.45);
+}
 
-    .navbar,
-    .footer {
-        background-color: rgba(11, 15, 23, 0.9);
-    }
+body.dark-mode .navbar,
+body.dark-mode .footer {
+    background-color: rgba(11, 15, 23, 0.9);
+}
 
-    .skill-button {
-        background-color: var(--secondary-background);
-    }
+body.dark-mode .skill-button {
+    background-color: var(--secondary-background);
+}
 
-    .download-button {
-        box-shadow: none;
-    }
+body.dark-mode .download-button {
+    box-shadow: none;
 }
 
 .footer {
