@@ -8,31 +8,41 @@
 }
 
 /* Variables */
+/* Variables */
 :root {
-    /* Traditional but Tasteful Palette */
-    --primary-color: #0f172a;
-    /* Navy/Slate 900 */
-    --secondary-color: #334155;
-    /* Slate 700 */
-    --accent-color: #0ea5e9;
-    /* Sky 500 - for small highlights */
-    --text-color: #334155;
-    /* Slate 700 - reduced contrast black */
-    --heading-color: #0f172a;
-    /* Navy/Slate 900 */
-    --background-color: #f8fafc;
-    /* Slate 50 */
+    /* JMW Turner Inspired Palette */
+    /* Deep Storm Blue - reminiscent of his stormy seas */
+    --primary-color: #1c2331;
+
+    /* Slate/Storm Grey */
+    --secondary-color: #4a5568;
+
+    /* Turner Gold - reminiscent of his sunsets and light studies */
+    --accent-color: #D4AF37;
+
+    /* Deep Grey - for text readability */
+    --text-color: #2d3748;
+
+    /* Deep Storm Blue */
+    --heading-color: #1c2331;
+
+    /* Mist White - atmospheric background */
+    --background-color: #FAFAF9;
+
+    /* Pure White */
     --secondary-background: #ffffff;
-    /* White */
+
+    /* Light Mist Grey */
     --border-color: #e2e8f0;
-    /* Slate 200 */
-    --hover-color: #1e293b;
-    /* Slate 800 */
-    --transition-speed: 0.2s;
-    --card-shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
-    /* Subtle shadow */
+
+    /* Deep Slate */
+    --hover-color: #2d3748;
+
+    --transition-speed: 0.3s;
+    /* Slightly slower for more "atmospheric" feel */
+    --card-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+
     --heading-font: 'Inter', sans-serif;
-    /* Clean, recognizable */
     --body-font: 'Inter', sans-serif;
 }
 
@@ -596,12 +606,21 @@ h6 {
 }
 
 /* Manual dark mode */
+/* Manual dark mode */
 body.dark-mode {
-    --text-color: #e5e7eb;
-    --background-color: #0b0f17;
-    --secondary-background: #121826;
-    --border-color: #1f2937;
-    --card-shadow: 0 6px 18px rgba(0, 0, 0, 0.45);
+    --text-color: #e2e8f0;
+    /* Light Grey for readability */
+    --background-color: #0f1219;
+    /* Very deep, almost black blue */
+    --secondary-background: #1a202c;
+    /* Dark Slate */
+    --border-color: #2d3748;
+    --primary-color: #e2e8f0;
+    /* Light text for headings in dark mode */
+    --heading-color: #f7fafc;
+    --accent-color: #dab852;
+    /* Slightly brighter gold for dark mode */
+    --card-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.5), 0 4px 6px -2px rgba(0, 0, 0, 0.3);
 }
 
 body.dark-mode .navbar,

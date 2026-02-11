@@ -2,6 +2,27 @@
 const baseUrl = '/cvsite';
 
 // Toggle skill sections
+// Skill interaction logic
+function initializeSkillsParams() {
+    const skillsContainer = document.querySelector('.skills-container');
+
+    if (skillsContainer) {
+        // Event delegation for skill buttons
+        skillsContainer.addEventListener('click', (e) => {
+            const button = e.target.closest('.skill-button');
+            if (button) {
+                toggleSkill(button);
+            }
+        });
+
+        // Expand/Collapse All button
+        const expandBtn = document.getElementById('expandAllBtn');
+        if (expandBtn) {
+            expandBtn.addEventListener('click', () => expandAll(expandBtn));
+        }
+    }
+}
+
 function toggleSkill(button) {
     const content = button.nextElementSibling;
     const isActive = button.classList.contains('active');
@@ -25,16 +46,18 @@ function toggleSkill(button) {
         content.style.maxHeight = content.scrollHeight + 'px';
         content.style.opacity = '1';
     }
+
+    // Update Expand/Collapse All button state if necessary
+    updateExpandButtonState();
 }
 
-function expandAll() {
+function expandAll(expandBtn) {
     const buttons = document.querySelectorAll('.skill-button');
-    const expandBtn = document.getElementById('expandAllBtn');
-    const isExpanded = buttons[0]?.classList.contains('active');
+    const isCurrentlyExpanded = expandBtn.textContent.includes('Collapse');
 
     buttons.forEach(button => {
         const content = button.nextElementSibling;
-        if (isExpanded) {
+        if (isCurrentlyExpanded) {
             button.classList.remove('active');
             content.style.maxHeight = '0';
             content.style.opacity = '0';
@@ -46,7 +69,23 @@ function expandAll() {
     });
 
     // Update button text
-    expandBtn.textContent = isExpanded ? 'Expand All' : 'Collapse All';
+    expandBtn.textContent = isCurrentlyExpanded ? 'Expand All' : 'Collapse All';
+}
+
+function updateExpandButtonState() {
+    const expandBtn = document.getElementById('expandAllBtn');
+    if (!expandBtn) return;
+
+    const allButtons = document.querySelectorAll('.skill-button');
+    const activeButtons = document.querySelectorAll('.skill-button.active');
+
+    // If all open, show Collapse. If all closed, show Expand. 
+    // If mixed, default to Expand (or keep current if logic prefers).
+    if (activeButtons.length === allButtons.length && allButtons.length > 0) {
+        expandBtn.textContent = 'Collapse All';
+    } else {
+        expandBtn.textContent = 'Expand All';
+    }
 }
 
 // Page transition handling

@@ -80,7 +80,7 @@ class ContentManager {
         (async () => {
             try {
                 const nav = await waitForNav();
-                
+
                 // Create logo container if it doesn't exist
                 let logoContainer = nav.querySelector('.nav-logo-container');
                 if (!logoContainer) {
@@ -118,8 +118,8 @@ class ContentManager {
                 const navLinks = nav.querySelector('.nav-links');
                 if (navLinks) {
                     navLinks.innerHTML = this.content.navigation.links.map(link => {
-                        const isActive = (link.url === 'index.html' && (currentPath.endsWith('index.html') || currentPath === '/')) || 
-                                      (link.url !== 'index.html' && currentPath.endsWith(link.url));
+                        const isActive = (link.url === 'index.html' && (currentPath.endsWith('index.html') || currentPath === '/')) ||
+                            (link.url !== 'index.html' && currentPath.endsWith(link.url));
                         return `
                             <a href="${link.url}" ${isActive ? 'class="active"' : ''}>
                                 ${link.text}
@@ -198,7 +198,7 @@ class ContentManager {
         // Render the skills content
         skillsContent.innerHTML = this.content.skills.categories.map(category => `
             <div class="skill-category">
-                <button class="skill-button" onclick="toggleSkill(this)">
+                <button class="skill-button">
                     <i class="fas ${skillIcons[category.name] || 'fa-star'}"></i>
                     <span>${category.name}</span>
                     ${category.experience ? `<span class="experience-badge">${category.experience}</span>` : ''}
@@ -206,9 +206,9 @@ class ContentManager {
                 <div class="skill-content">
                     <ul>
                         ${category.items.map(item => {
-                            const isSubcategory = item.endsWith(':');
-                            return `<li class="${isSubcategory ? 'subcategory' : ''}">${item}</li>`;
-                        }).join('')}
+            const isSubcategory = item.endsWith(':');
+            return `<li class="${isSubcategory ? 'subcategory' : ''}">${item}</li>`;
+        }).join('')}
                     </ul>
                 </div>
             </div>
@@ -246,7 +246,7 @@ class ContentManager {
     // Initialize content based on current page
     async initialize() {
         await this.loadContent();
-        
+
         // Wait for navbar to be loaded
         const waitForNav = () => {
             return new Promise((resolve) => {
@@ -278,7 +278,13 @@ class ContentManager {
 }
 
 // Initialize content manager when DOM is loaded
-document.addEventListener('DOMContentLoaded', () => {
+document.addEventListener('DOMContentLoaded', async () => {
     const contentManager = new ContentManager();
-    contentManager.initialize();
+    await contentManager.initialize();
+
+    // Initialize skill interactions after content is loaded
+    // Using a timeout to ensure DOM catch-up if MutationObserver in loadComponent wasn't enough for inner content
+    setTimeout(() => {
+        initializeSkillsParams();
+    }, 100);
 }); 
