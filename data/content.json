@@ -47,6 +47,19 @@
                 ]
             },
             {
+                "name": "CI/CD",
+                "experience": "3+ years professional experience",
+                "items": [
+                    "Automation & IaC:",
+                    "Utilised Ansible for configuration management and automation",
+                    "Deployed scalable infrastructure using Terraform",
+                    "Platforms:",
+                    "Managed CI/CD pipelines and deployments in Github and Gitlab",
+                    "Orchestrated deployments and releases via Azure DevOps",
+                    "Deployed applications and configurations to Cloudflare"
+                ]
+            },
+            {
                 "name": "Active Directory",
                 "experience": "11+ years professional experience",
                 "items": [
@@ -205,4 +218,4 @@
             }
         ]
     }
-} 
+}

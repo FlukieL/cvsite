@@ -202,6 +202,7 @@ class ContentManager {
             'Networking': 'fa-network-wired',
             'Storage': 'fa-database',
             'Exchange': 'fa-envelope',
+            'CI/CD': 'fa-infinity',
             'General': 'fa-user-tie',
             'Legacy': 'fa-history'
         };
@@ -246,11 +247,24 @@ class ContentManager {
 
         const downloadOptions = cvSection.querySelector('.download-options');
         if (downloadOptions) {
-            downloadOptions.innerHTML = this.content.cv.downloads.map(download => `
-                <a href="${download.url}" class="download-button" download>
+            downloadOptions.innerHTML = this.content.cv.downloads.map(download => {
+                let iconClass = 'fa-download';
+                let btnClass = 'btn-primary';
+
+                if (download.text.toLowerCase().includes('pdf')) {
+                    iconClass = 'fa-file-pdf';
+                    btnClass = 'btn-primary';
+                } else if (download.text.toLowerCase().includes('docx')) {
+                    iconClass = 'fa-file-word';
+                    btnClass = 'btn-secondary';
+                }
+
+                return `
+                <a href="${download.url}" class="btn ${btnClass}" download>
+                    <i class="fa-solid ${iconClass}" aria-hidden="true"></i>
                     ${download.text}
                 </a>
-            `).join('');
+            `}).join('');
         }
     }
 

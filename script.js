@@ -55,7 +55,7 @@ function toggleSkill(button) {
         content.style.maxHeight = '0';
         content.style.opacity = '0';
     } else {
-        content.style.maxHeight = content.scrollHeight + 'px';
+        content.style.maxHeight = (content.scrollHeight + 50) + 'px';
         content.style.opacity = '1';
     }
 
@@ -75,7 +75,7 @@ function expandAll(expandBtn) {
             content.style.opacity = '0';
         } else {
             button.classList.add('active');
-            content.style.maxHeight = content.scrollHeight + 'px';
+            content.style.maxHeight = (content.scrollHeight + 50) + 'px';
             content.style.opacity = '1';
         }
     });
