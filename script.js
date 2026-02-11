@@ -5,7 +5,7 @@
 
 // Hidden debug theme toggle
 function toggleThemeDebug() {
-    const isDark = document.body.classList.toggle('dark-mode');
+    const isDark = document.documentElement.classList.toggle('dark-mode');
     try {
         localStorage.setItem('preferred-theme', isDark ? 'dark' : 'light');
     } catch (e) {
@@ -102,33 +102,10 @@ function updateExpandButtonState() {
 
 // Page transition handling
 document.addEventListener('DOMContentLoaded', () => {
-    // Set body opacity to 1 on page load
-    document.body.style.opacity = '1';
-
     // Add page transition class to main content
     const mainContent = document.querySelector('main');
     if (mainContent) {
         mainContent.classList.add('page-transition');
-    }
-
-    // Apply stored theme preference if present, otherwise fall back to time-based default
-    let storedTheme = null;
-    try {
-        storedTheme = localStorage.getItem('preferred-theme');
-    } catch (e) {
-        storedTheme = null;
-    }
-
-    if (storedTheme === 'dark') {
-        document.body.classList.add('dark-mode');
-    } else if (storedTheme === 'light') {
-        document.body.classList.remove('dark-mode');
-    } else {
-        // Time-based default dark mode (18:00 - 06:00)
-        const hours = new Date().getHours();
-        if (hours >= 18 || hours < 6) {
-            document.body.classList.add('dark-mode');
-        }
     }
 
     // Hidden debug keyboard shortcut: Shift+Alt+D toggles theme
@@ -146,8 +123,11 @@ document.addEventListener('DOMContentLoaded', () => {
                 e.preventDefault();
                 const href = link.getAttribute('href');
 
-                // Add fade-out animation
-                document.body.style.opacity = '0';
+                // Animate main content out
+                if (mainContent) {
+                    mainContent.style.transition = 'opacity 0.15s ease-out';
+                    mainContent.style.opacity = '0';
+                }
 
                 // Navigate after animation
                 setTimeout(() => {
@@ -157,6 +137,9 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 });
+
+
+
 
 // Add smooth scrolling for navigation links
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {

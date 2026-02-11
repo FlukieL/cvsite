@@ -608,7 +608,7 @@ h6 {
 
 /* Manual dark mode */
 /* Manual dark mode */
-body.dark-mode {
+html.dark-mode {
     --text-color: #e2e8f0;
     /* Light Grey for readability */
     --background-color: #0f1219;
@@ -625,52 +625,52 @@ body.dark-mode {
 }
 
 /* Dark mode button and pill adjustments for readability */
-body.dark-mode .btn-primary {
+html.dark-mode .btn-primary {
     background-color: var(--accent-color);
     color: #000000;
 }
 
-body.dark-mode .btn-primary:hover {
+html.dark-mode .btn-primary:hover {
     background-color: #f3d472;
     color: #000000;
 }
 
-body.dark-mode .btn-secondary {
+html.dark-mode .btn-secondary {
     background-color: #f5f5f5;
     color: #000000;
 }
 
-body.dark-mode .btn-secondary:hover {
+html.dark-mode .btn-secondary:hover {
     background-color: #e2e8f0;
     color: #000000;
 }
 
-body.dark-mode .skill-button.active .experience-badge {
+html.dark-mode .skill-button.active .experience-badge {
     background-color: #f5f5f5;
     color: #000000;
 }
 
-body.dark-mode .expand-all-btn {
+html.dark-mode .expand-all-btn {
     background: var(--secondary-background);
     color: var(--text-color);
     border: 1px solid var(--border-color);
 }
 
-body.dark-mode .expand-all-btn:hover {
+html.dark-mode .expand-all-btn:hover {
     background: #2d3748;
     color: #e2e8f0;
 }
 
-body.dark-mode .navbar,
-body.dark-mode .footer {
+html.dark-mode .navbar,
+html.dark-mode .footer {
     background-color: rgba(11, 15, 23, 0.9);
 }
 
-body.dark-mode .skill-button {
+html.dark-mode .skill-button {
     background-color: var(--secondary-background);
 }
 
-body.dark-mode .download-button {
+html.dark-mode .download-button {
     box-shadow: none;
 }
 
