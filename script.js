@@ -1,5 +1,17 @@
 // Base URL configuration
-const baseUrl = '/cvsite';
+// In production this site is hosted under "/cvsite/",
+// but the dev Waitress server also understands that prefix.
+const baseUrl = '/cvsite/';
+
+// Hidden debug theme toggle
+function toggleThemeDebug() {
+    const isDark = document.body.classList.toggle('dark-mode');
+    try {
+        localStorage.setItem('preferred-theme', isDark ? 'dark' : 'light');
+    } catch (e) {
+        // Fail silently if storage is unavailable
+    }
+}
 
 // Toggle skill sections
 // Skill interaction logic
@@ -99,11 +111,32 @@ document.addEventListener('DOMContentLoaded', () => {
         mainContent.classList.add('page-transition');
     }
 
-    // Check for dark mode (18:00 - 06:00)
-    const hours = new Date().getHours();
-    if (hours >= 18 || hours < 6) {
-        document.body.classList.add('dark-mode');
+    // Apply stored theme preference if present, otherwise fall back to time-based default
+    let storedTheme = null;
+    try {
+        storedTheme = localStorage.getItem('preferred-theme');
+    } catch (e) {
+        storedTheme = null;
     }
+
+    if (storedTheme === 'dark') {
+        document.body.classList.add('dark-mode');
+    } else if (storedTheme === 'light') {
+        document.body.classList.remove('dark-mode');
+    } else {
+        // Time-based default dark mode (18:00 - 06:00)
+        const hours = new Date().getHours();
+        if (hours >= 18 || hours < 6) {
+            document.body.classList.add('dark-mode');
+        }
+    }
+
+    // Hidden debug keyboard shortcut: Shift+Alt+D toggles theme
+    document.addEventListener('keydown', (event) => {
+        if (event.shiftKey && event.altKey && event.code === 'KeyD') {
+            toggleThemeDebug();
+        }
+    });
 
     // Handle navigation clicks
     document.querySelectorAll('a').forEach(link => {
@@ -118,7 +151,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
                 // Navigate after animation
                 setTimeout(() => {
-                    window.location.href = baseUrl + href;
+                    // Ensure we don't accidentally create "/cvsiteindex.html"
+                    const normalisedHref = href.startsWith('/')
+                        ? href.slice(1)
+                        : href;
+                    window.location.href = baseUrl + normalisedHref;
                 }, 150);
             }
         });
