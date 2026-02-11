@@ -6,67 +6,66 @@ A modern, responsive personal CV website built with HTML, CSS, and JavaScript.
 
 ```
 .
-├── index.html          # Main landing page
-├── cv.html            # CV/Resume page
-├── skills.html        # Skills showcase page
-├── styles.css         # Main stylesheet
-├── script.js          # Main JavaScript functionality
+├── index.html          # Main landing page (About Me)
+├── cv.html             # CV/Resume page
+├── skills.html         # Skills showcase page
+├── styles.css          # Main stylesheet
+├── script.js           # Main JavaScript functionality
 ├── js/
-│   └── content.js     # Content management and rendering
+│   ├── components.js   # Reusable UI components
+│   └── content.js      # Content management and rendering
 ├── data/
-│   └── content.json   # Site content and configuration
-└── images/            # Image assets
+│   └── content.json    # Site content and configuration
+└── images/             # Image assets
 ```
 
 ## Features
 
-- Responsive design that works on all devices
-- Dynamic content loading from JSON
-- Smooth page transitions
-- Interactive skills showcase
-- Downloadable CV options
-- Modern typography using Google Fonts (Playfair Display and Poppins)
+- **Responsive Design**: Works seamlessly on mobile, tablet, and desktop devices.
+- **Dynamic Content**: All text content is managed via `data/content.json` for easy updates.
+- **Interactive Skills**: Categorized skills with expandable details.
+- **Page Transitions**: Smooth opacity transitions between pages.
+- **Dark Mode**: Automatic (time-based 6PM-6AM) and manual debug toggle (Shift+Alt+D).
+- **Downloadable CV**: Options to download the CV in PDF or Word formats.
 
 ## Setup
 
-1. Clone the repository
-2. Ensure all files are in their correct locations as per the project structure
-3. Open `index.html` in a web browser to view the site
+1. **Clone the repository**:
+   ```bash
+   git clone <repository-url>
+   ```
+2. **Local Development**:
+   You can serve the files using any static file server.
+   For example, using Python's built-in server:
+   ```bash
+   python -m http.server 8000
+   ```
+   Or using the included waitress server script:
+   ```bash
+   python dev_waitress_server.py
+   ```
+3. **Open in Browser**:
+   Navigate to `http://localhost:8000` (or the port provided by your server).
 
 ## Content Management
 
-The site's content is managed through `data/content.json`. This includes:
-- Navigation menu items
-- About section content
-- Skills and experience
-- CV download options
+The site's content is centralized in `data/content.json`.
+- **Navigation**: Define menu links and logo.
+- **About**: Update the bio and introductory text.
+- **Skills**: Add or remove skill categories and items.
+- **CV**: Configure CV download links and title.
 
 ## Development
 
-### Adding New Pages
-
-1. Create a new HTML file in the root directory
-2. Include the necessary CSS and JavaScript files
-3. Add the page content structure following the existing patterns
-4. Update the navigation in `data/content.json`
-5. Add the page rendering logic in `js/content.js`
-
-### Styling
-
-The site uses a custom CSS framework defined in `styles.css`. Key features include:
-- Responsive grid system
-- Custom animations and transitions
-- Mobile-first design approach
-- Consistent color scheme and typography
-
-## Browser Support
-
-The site is compatible with:
-- Chrome (latest)
-- Firefox (latest)
-- Safari (latest)
-- Edge (latest)
+- **Styling**: `styles.css` contains all custom styles, including responsive grids and animations.
+- **Logic**: 
+  - `script.js` handles global interactions like theme toggling and page transitions.
+  - `js/content.js` fetches and renders content from the JSON file.
+- **Adding Pages**: 
+  1. Create the HTML file.
+  2. Add it to `data/content.json` navigation.
+  3. Implement a render function in `js/content.js`.
 
 ## License
 
-All rights reserved. This project and its contents are private and not licensed for public use. 
+All rights reserved. This project and its contents are private and not licensed for public use.

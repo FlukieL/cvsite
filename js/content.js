@@ -51,6 +51,14 @@ class ContentManager {
                 about: {
                     title: "About Me",
                     content: ["Content loading failed. Please check your internet connection and try again."]
+                },
+                skills: {
+                    title: "Skills",
+                    categories: []
+                },
+                cv: {
+                    title: "CV",
+                    downloads: []
                 }
             };
             return this.content;
@@ -266,12 +274,15 @@ class ContentManager {
         this.renderNavigation();
 
         // Render page-specific content
-        const path = window.location.pathname;
-        if (path.endsWith('index.html') || path === '/') {
+        const path = window.location.pathname.toLowerCase();
+        console.log('Current path for rendering:', path);
+
+        if (path.endsWith('index.html') || path === '/' || path.endsWith('/')) {
             this.renderAbout();
-        } else if (path.endsWith('skills.html')) {
+        } else if (path.includes('skills')) {
+            console.log('Detected skills page, rendering skills...');
             this.renderSkills();
-        } else if (path.endsWith('cv.html')) {
+        } else if (path.includes('cv')) {
             this.renderCV();
         }
     }

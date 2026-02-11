@@ -1,7 +1,7 @@
 // Base URL configuration
 // In production this site is hosted under "/cvsite/",
 // but the dev Waitress server also understands that prefix.
-const baseUrl = '/cvsite/';
+// const baseUrl = '/cvsite/'; // Removed hardcoded base to allow flexible hosting
 
 // Hidden debug theme toggle
 function toggleThemeDebug() {
@@ -151,11 +151,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
                 // Navigate after animation
                 setTimeout(() => {
-                    // Ensure we don't accidentally create "/cvsiteindex.html"
-                    const normalisedHref = href.startsWith('/')
-                        ? href.slice(1)
-                        : href;
-                    window.location.href = baseUrl + normalisedHref;
+                    window.location.href = href;
                 }, 150);
             }
         });
