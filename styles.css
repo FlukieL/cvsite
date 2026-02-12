@@ -472,6 +472,18 @@ h6 {
     padding-left: 2rem;
 }
 
+.skill-content li a {
+    color: var(--text-color);
+    text-decoration: none;
+    transition: all var(--transition-speed);
+    border-bottom: 1px dashed var(--accent-color);
+}
+
+.skill-content li a:hover {
+    color: var(--accent-color);
+    border-bottom-style: solid;
+}
+
 @media (max-width: 768px) {
     .skills-header {
         flex-direction: column;
