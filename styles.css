@@ -132,7 +132,7 @@ h6 {
 
 .logo {
     font-family: var(--heading-font);
-    font-size: 1.75rem;
+    font-size: 2.75rem;
     font-weight: normal;
     color: var(--primary-color);
     text-decoration: none;
@@ -298,7 +298,7 @@ h6 {
 }
 
 .profile-header h1 {
-    font-size: 3rem;
+    font-size: 2.5rem;
     color: var(--primary-color);
     margin-top: 1rem;
     font-weight: normal;
