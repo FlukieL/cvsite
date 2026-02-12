@@ -65,6 +65,17 @@
                 ]
             },
             {
+                "name": "Database",
+                "experience": "6+ years professional experience",
+                "items": [
+                    "Relational Databases:",
+                    "Extensive experience with Microsoft SQL Server",
+                    "Worked with PostgreSQL for scalable database solutions",
+                    "NoSQL Databases:",
+                    "Managed Oracle NoSQL databases for high-performance applications"
+                ]
+            },
+            {
                 "name": "Web Development",
                 "experience": "4+ years professional experience",
                 "items": [
