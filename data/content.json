@@ -32,7 +32,7 @@
         "title": "Skills",
         "categories": [
             {
-                "name": "Azure/365",
+                "name": "Cloud & Microsoft 365",
                 "experience": "8+ years professional experience",
                 "items": [
                     "Azure Infrastructure:",
@@ -42,6 +42,10 @@
                     "Azure Identity & Security:",
                     "Utilised Azure Active Directory to allow customers to work entirely off Azure with seamless SSO",
                     "Deployed ADFS to allow seamless SSO and configured it to work with both native and third party applications along with externally facing two factor security",
+                    "AWS Infrastructure:",
+                    "Deployed and managed EC2 instances for various workloads",
+                    "Configured S3 storage for scalable data management",
+                    "Implemented cloud solutions using AWS services",
                     "Office 365:",
                     "Migrated users to Office 365 from a variety of different mail solutions with zero issues"
                 ]
@@ -57,6 +61,25 @@
                     "Managed CI/CD pipelines and deployments in Github and Gitlab",
                     "Orchestrated deployments and releases via Azure DevOps",
                     "Deployed applications and configurations to Cloudflare"
+                ]
+            },
+            {
+                "name": "Web Development",
+                "experience": "4+ years professional experience",
+                "items": [
+                    "Frontend Development:",
+                    "Extensive experience with HTML5, CSS3, and modern JavaScript (ES6+)",
+                    "Built responsive and dynamic user interfaces using React",
+                    "Developed single-page applications with modern frontend frameworks",
+                    "Implemented responsive design principles for cross-device compatibility",
+                    "Backend Development:",
+                    "Developed server-side applications using NodeJS",
+                    "Created RESTful APIs and web services",
+                    "Integrated frontend applications with backend services",
+                    "Best Practices:",
+                    "Strong understanding of web standards and accessibility",
+                    "Experience with version control and collaborative development workflows",
+                    "Focus on performance optimisation and user experience"
                 ]
             },
             {

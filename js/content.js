@@ -195,6 +195,7 @@ class ContentManager {
 
         // Map of skill categories to their corresponding Font Awesome icons
         const skillIcons = {
+            'Cloud & Microsoft 365': 'fa-cloud',
             'Azure/365': 'fa-microsoft',
             'Active Directory': 'fa-server',
             'Virtualisation': 'fa-cube',
@@ -203,6 +204,7 @@ class ContentManager {
             'Storage': 'fa-database',
             'Exchange': 'fa-envelope',
             'CI/CD': 'fa-infinity',
+            'Web Development': 'fa-code',
             'General': 'fa-user-tie',
             'Legacy': 'fa-history'
         };
