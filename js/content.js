@@ -113,7 +113,7 @@ class ContentManager {
                         profileImage.alt = 'Luke Harper';
                         logoContainer.insertBefore(profileImage, logoContainer.firstChild);
                     }
-                    profileImage.style.display = 'block';
+                    profileImage.style.visibility = 'visible';
                 }
 
                 // Logo

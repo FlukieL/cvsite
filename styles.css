@@ -118,7 +118,7 @@ h6 {
     height: 40px;
     border-radius: 50%;
     object-fit: cover;
-    display: none;
+    visibility: hidden;
     /* Hidden by default, shown via JS on non-main pages */
 }
 
@@ -175,7 +175,7 @@ h6 {
 
 /* Container */
 .container {
-    max-width: 1400px;
+    max-width: 1200px;
     margin: 0 auto;
     padding: 2rem 1rem;
     flex: 1;
@@ -215,6 +215,7 @@ h6 {
     gap: 1.5rem;
     max-width: 58ch;
     grid-area: content;
+    align-self: center;
 }
 
 .about-content h1 {
@@ -408,7 +409,8 @@ h6 {
     transition: max-height 0.3s ease-out, opacity 0.3s ease-out;
     background-color: var(--secondary-background);
     border-radius: 0 0 4px 4px;
-    margin-top: -1px; /* Overlap the border */
+    margin-top: -1px;
+    /* Overlap the border */
     padding: 0 1.25rem 1.25rem 1.25rem;
     border: 1px solid var(--primary-color);
     border-top: none;
