@@ -569,6 +569,29 @@ h6 {
 }
 
 /* Responsive Design */
+@media (max-width: 992px) {
+    .about-section {
+        grid-template-columns: 1fr;
+        grid-template-areas:
+            "image"
+            "content";
+        gap: 2rem;
+        text-align: center;
+    }
+
+    .about-content {
+        max-width: 100%;
+    }
+
+    .profile-image {
+        margin: 0 auto;
+    }
+
+    .cta-group {
+        justify-content: center;
+    }
+}
+
 @media (max-width: 768px) {
     .nav-content {
         flex-direction: column;
@@ -579,15 +602,6 @@ h6 {
         flex-direction: column;
         align-items: center;
         gap: 1rem;
-    }
-
-    .about-section {
-        grid-template-columns: 1fr;
-        text-align: center;
-    }
-
-    .profile-image {
-        margin: 0 auto;
     }
 
     .about-content h1,

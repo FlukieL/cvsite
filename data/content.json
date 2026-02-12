@@ -23,7 +23,7 @@
     "about": {
         "title": "About Me",
         "content": [
-            "I am an experienced Infrastructure Engineer / Systems Administrator / Cloud Architect with over a decade of experience in the industry, with a wide skill set and understanding of a vast amount of different technologies.",
+            "I am an experienced Platforms Engineer / Systems Administrator / Cloud Architect with over a decade of experience in the industry, with a wide skill set and understanding of a vast amount of different technologies.",
             "My focus is on creating efficient, secure, and scalable IT environments that enable businesses to operate effectively in today's digital landscape.",
             "Please refer to my Skills page for more information about myself."
         ]
@@ -66,11 +66,11 @@
                     "Core Infrastructure:",
                     "Full working experience of systems from Server 2003 to 2016",
                     "Have built Active Directory structure for several customers from scratch",
-                    "Migrated Active Directory, upgraded core servers",
+                    "Migrated Active Directory, upgraded legacy environments to modern standards.",
                     "File Systems & Storage:",
                     "Managed and created file systems utilising DFS, BranchCaching, Failover Clusters",
                     "Security & Policy:",
-                    "Full understanding of Group Policy for Desktops and Terminal services environments",
+                    "Full understanding of Group Policy for Desktops and Terminal services environments.",
                     "Created Security Policy for organisations matching compliance requirements",
                     "Resolved severe security issues and restructured environment accordingly",
                     "Remote Access:",
@@ -97,7 +97,7 @@
             },
             {
                 "name": "Citrix XenApp/RDS",
-                "experience": "7 years professional experience",
+                "experience": "8+ years professional experience",
                 "items": [
                     "Core Infrastructure:",
                     "Worked with Citrix version 5.0 to 7.15",
@@ -150,7 +150,7 @@
             },
             {
                 "name": "Storage",
-                "experience": "7 years professional experience",
+                "experience": "7+ years professional experience",
                 "items": [
                     "Worked with:",
                     "EMC VNX/VNXe Storage",
@@ -163,7 +163,7 @@
             },
             {
                 "name": "Exchange",
-                "experience": "6 years professional experience",
+                "experience": "6+ years professional experience",
                 "items": [
                     "Worked with systems from 2003 to 2016 along with 365",
                     "Added Skype for Business for instant messaging both on site and connected to Azure",
